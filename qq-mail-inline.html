@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        
+        * {
+            background-color: rgba(0,0,0,0);
+            box-shadow: inset 0 0 1px red;
+        }
+        
+        .a {
+            font-size: 0;
+        }
+
+        .a * {
+            font-size: 16px;
+        }
+
+        ul {
+            padding-left: 0;
+            display: block;
+        }
+
+        li {
+            position: relative;
+        }
+
+        .a > li {
+            display: inline-block;
+            padding: 0.1em 0.5em;
+        }
+
+        .b li {
+            display: block;
+            padding: 0.1em 0.5em;
+        }
+
+        .b {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+        }
+
+        .a > li:hover > ul ,.b > li:hover > ul{
+            display: block;
+        }
+
+        .c {
+            left: 100%;
+            top: 0;
+            display: none;
+            position: absolute;
+        }
+
+        img {
+            width: 50px;
+            height: 50px;
+            display: none;
+        }
+
+        input:checked + * + * +img {
+            display: block;
+        }
+
+
+    </style>
+</head>
+<body>
+    <div>
+        <ul class="a">
+            <li>查找
+                <ul class="b">
+                    <li>aaa
+                        <ul class="c">
+                            <li>aaa</li>
+                            <li>aaa</li>
+                            <li>aaa</li>
+                        </ul>
+                    </li>
+                    <li>aaa
+                        <ul class="c">
+                            <li>aaa</li>
+                            <li>aaa</li>
+                            <li>aaa</li>
+                        </ul>
+                    </li>
+                    <li>aaaaaaa
+                        <ul class="c">
+                            <li>aaa</li>
+                            <li>aaa</li>
+                            <li>aaa</li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            <li>编辑</li>
+            <li>发送</li>
+            <li>草稿</li>
+        </ul>
+    </div>
+    <hr>
+    <div>
+        <label for="1">1</label>
+        <label for="2">2</label>
+        <label for="3">3</label>
+        
+        
+        <input type="radio" name="p" id="1" hidden>
+        <input type="radio" name="p" id="2" hidden>
+        <input type="radio" name="p" id="3" hidden>
+
+        <img src="https://ts2.cn.mm.bing.net//th?id=OPAC.4DF3argkTOhJVg474C474&o=5&pid=21.1&h=157&w=300&c=4&rs=1" alt="">
+        <img src="https://ts1.cn.mm.bing.net/th?id=OADD2.8246449695352_1P7KLDMXXW4ZHZ83W2&pid=21.2&c=16&roil=0&roit=0&roir=1&roib=1&w=612&h=304&dynsize=1&qlt=90" alt="">
+        <img src="https://ts3.cn.mm.bing.net/th?id=ORMS.9fd288c00346731ef15930ad8422f8c8&pid=Wdp&w=268&h=140&qlt=90&c=1&rs=1&dpr=1&p=0" alt="">
+    </div>
+</body>
+</html>
