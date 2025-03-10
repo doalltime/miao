@@ -175,7 +175,7 @@ class Stack {
     this.elements = []
   }
 
-  in(val) {
+  push(val) {
     this.elements.push()
   }
 
@@ -249,7 +249,7 @@ class Queue {
     this._length = 0
   }
 
-  in(val) {
+  add(val) {
     this._length++
     var node = {
       val : val,
