@@ -19,8 +19,8 @@ class LinkedList {
 
   set(idx, val) {
     var node = {
-      val : val,
-      next : null,
+      val: val,
+      next: null,
     }
     if (!this.head) {
       this.head = node
@@ -43,8 +43,8 @@ class LinkedList {
   push(val) {
     this._length++
     var node = {
-      val : val,
-      next : null
+      val: val,
+      next: null
     }
 
     var p = this.head
@@ -73,7 +73,7 @@ class LinkedList {
     }
 
     while (p.next.next) {
-    var p = p.next
+      var p = p.next
     }
     var k = p.next
     p.next = null
@@ -83,8 +83,8 @@ class LinkedList {
   append(val) {
     this._length++
     var node = {
-      val : val,
-      next : null,
+      val: val,
+      next: null,
     }
 
     node.next = this.head
@@ -92,10 +92,10 @@ class LinkedList {
     return this.head
   }
 
-  oprepend() {
+  prepend() {
     var p = this.head
 
-    if(!p) {
+    if (!p) {
       return undefined
     }
     this._length--
@@ -134,7 +134,7 @@ class LinkedList {
 }
 
 class MySet {
-  constructor(initalValues) {
+  constructor(initalValues = []) {
     this.elements = []
     for (var item of initalValues) {
       if (!this.elements.includes(item)) {
@@ -154,8 +154,8 @@ class MySet {
 
   delete(item) {
     var idx = this.elements.indexOf(item)
-    if (idx >= 0 ) {
-      this.elements.splice(idx , 1)
+    if (idx >= 0) {
+      this.elements.splice(idx, 1)
     }
     return this
   }
@@ -184,7 +184,7 @@ class Stack {
   }
 
   push(val) {
-    this.elements.push()
+    this.elements.push(val)
   }
 
   pop() {
@@ -206,11 +206,17 @@ class MyMap {
   }
 
   set(key, val) {
+    for (var i = 0; i < this._pairs.length; i += 2) {
+      if (this._pairs[i] === key) {
+        this._pairs[i + 1] = val
+        return
+      }
+    }
     this._pairs.push(key, val)
   }
 
   get(key) {
-    for (var i = 0 ; i < this._pairs.length; i+=2) {
+    for (var i = 0; i < this._pairs.length; i += 2) {
       if (this._pairs[i] === key) {
         return this._pairs[i + 1]
       }
@@ -218,7 +224,7 @@ class MyMap {
   }
 
   has(key) {
-    for (var i = 0 ; i < this._pairs.length; i+=2) {
+    for (var i = 0; i < this._pairs.length; i += 2) {
       if (this._pairs[i] === key) {
         return true
       }
@@ -226,9 +232,9 @@ class MyMap {
   }
 
   delete(key) {
-    for (var i = 0 ; i < this._pairs.length; i+=2) {
+    for (var i = 0; i < this._pairs.length; i += 2) {
       if (this._pairs[i] === key) {
-        this._pairs.splice(i , 2)
+        this._pairs.splice(i, 2)
       }
     }
     return this
@@ -244,9 +250,9 @@ class MyMap {
   }
 
   forEach(iterator) {
-    for (var i = 0 ; i < this._pairs.length; i+=2) {
-      iterator(this._pairs[i + 1] , i)
-      }
+    for (var i = 0; i < this._pairs.length; i += 2) {
+      iterator(this._pairs[i + 1], i)
+    }
   }
 }
 
@@ -260,10 +266,10 @@ class Queue {
   add(val) {
     this._length++
     var node = {
-      val : val,
-      next : null,
+      val: val,
+      next: null,
     }
-    if (!_tail) {
+    if (!this._tail) {
       this._head = node
       this._tail = node
     } else {
