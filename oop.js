@@ -1,4 +1,4 @@
-class ListedList {
+class LinkedList {
   constructor() {
     this.head = null
   }
@@ -125,7 +125,7 @@ class ListedList {
   }
 }
 
-class Collection {
+class MaySet {
   constructor(initalValues) {
     this.elements = []
     for (var item of initalValues) {
@@ -192,7 +192,7 @@ class Stack {
   }
 }
 
-class Map {
+class MyMap {
   constructor() {
     this._pairs = []
   }
