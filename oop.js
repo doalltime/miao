@@ -1,9 +1,10 @@
 class LinkedList {
   constructor() {
     this.head = null
+    this._length = 0
   }
 
-  get(idx) {
+  at(idx) {
     var p = this.head
     while (idx > 0 && p) {
       p = p.next
@@ -40,6 +41,7 @@ class LinkedList {
   }
 
   push(val) {
+    this._length++
     var node = {
       val : val,
       next : null
@@ -64,6 +66,7 @@ class LinkedList {
     if (!p) {
       return undefined
     }
+    this._length--
     if (!p.next) {
       this.head = null
       return undefined
@@ -77,7 +80,8 @@ class LinkedList {
     return k
   }
 
-  unshift(val) {
+  append(val) {
+    this._length++
     var node = {
       val : val,
       next : null,
@@ -88,13 +92,13 @@ class LinkedList {
     return this.head
   }
 
-  shift() {
+  oprepend() {
     var p = this.head
 
     if(!p) {
       return undefined
     }
-
+    this._length--
     if (!p.next) {
       this.head = null
     } else {
@@ -123,9 +127,13 @@ class LinkedList {
     }
     return result
   }
+
+  get size() {
+    return this._length
+  }
 }
 
-class MaySet {
+class MySet {
   constructor(initalValues) {
     this.elements = []
     for (var item of initalValues) {
@@ -179,7 +187,7 @@ class Stack {
     this.elements.push()
   }
 
-  out() {
+  pop() {
     this.elements.pop()
   }
 
@@ -203,7 +211,7 @@ class MyMap {
 
   get(key) {
     for (var i = 0 ; i < this._pairs.length; i+=2) {
-      if (this._pairsp[i] === key) {
+      if (this._pairs[i] === key) {
         return this._pairs[i + 1]
       }
     }
@@ -211,7 +219,7 @@ class MyMap {
 
   has(key) {
     for (var i = 0 ; i < this._pairs.length; i+=2) {
-      if (this._pairsp[i] === key) {
+      if (this._pairs[i] === key) {
         return true
       }
     }
@@ -219,7 +227,7 @@ class MyMap {
 
   delete(key) {
     for (var i = 0 ; i < this._pairs.length; i+=2) {
-      if (this._pairsp[i] === key) {
+      if (this._pairs[i] === key) {
         this._pairs.splice(i , 2)
       }
     }
@@ -265,21 +273,21 @@ class Queue {
     return this
   }
 
-  out() {
+  pop() {
     var result = this._head
-    if (!retult) {
+    if (!result) {
       return undefined
     }
     this._length--
     this._head = this._head.next
-    if (!this.head) {
+    if (!this._head) {
       this._tail = null
     }
     return result
   }
 
   peek() {
-    return this.head
+    return this._head
   }
 
   get size() {
