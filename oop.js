@@ -40,7 +40,7 @@ class LinkedList {
     return head
   }
 
-  push(val) {
+  append(val) {
     this._length++
     var node = {
       val: val,
@@ -80,7 +80,7 @@ class LinkedList {
     return k
   }
 
-  append(val) {
+  prepend(val) {
     this._length++
     var node = {
       val: val,
@@ -92,7 +92,7 @@ class LinkedList {
     return this.head
   }
 
-  prepend() {
+  shift() {
     var p = this.head
 
     if (!p) {
@@ -188,7 +188,7 @@ class Stack {
   }
 
   pop() {
-    this.elements.pop()
+    return this.elements.pop()
   }
 
   peek() {
@@ -289,7 +289,7 @@ class Queue {
     if (!this._head) {
       this._tail = null
     }
-    return result
+    return result.val
   }
 
   peek() {
